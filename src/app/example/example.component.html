@@ -1,0 +1,185 @@
+<!-- import { Component, ChangeDetectionStrategy, NgZone } from '@angular/core';
+import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
+
+// import { ActivityList } from './app.component';
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  name = 'Angular';
+  data = {
+    "ProgramId": "d9c35253-97c4-45e1-81a9-d4863a94d724",
+    "TermCtr": "5",
+    "ActivityList": [
+      {
+        "IsSelected": false,
+        "CountryList": [
+          {
+            "CountryName": "CHAD",
+            "IsCountrySelected": false,
+            "PCOTID": "fa615209-58f3-43b5-972d-6bbf83f12212"
+          },
+          {
+            "CountryName": "PROGRAM",
+            "IsCountrySelected": false,
+            "PCOTID": "a257c4bd-47bc-4d84-b32f-31e4afb6789e"
+          }
+        ],
+        "TaskCode": "INV",
+        "TaskDescription": "Invoicing",
+      },
+      {
+        "IsSelected": false,
+        "CountryList": [
+          {
+            "CountryName": "CHAD",
+            "IsCountrySelected": false,
+            "PCOTID": "8153ee8a-cc07-4158-a288-e919305b10aa"
+          },
+          {
+            "CountryName": "KAZAKHSTAN",
+            "IsCountrySelected": false,
+            "PCOTID": "6227abbd-0e61-46d8-b592-12943dc86c4c"
+          }
+        ],
+        "TaskCode": "LP",
+        "TaskDescription": "Local Policy"
+      },
+      {
+        "IsSelected": false,
+        "TaskCode": "demo 3",
+        "TaskDescription": "Demo3",
+        "CountryList": [
+          {
+            "CountryName": "CAMEROON", 
+            "IsCountrySelected": false,
+            "PCOTID": "d1112bb6-268b-4e24-bb4c-7916c9a56f90"
+          },
+          {
+            "CountryName": "CHAD",
+            "IsCountrySelected": false,
+            "PCOTID": "09817c4a-e089-49da-9ce4-97ee308246cd"
+          },
+          {
+            "CountryName": "EQUATORIAL GUINEA",
+            "IsCountrySelected": false,
+            "PCOTID": "2fc36a50-b9bf-472e-8361-ede47737ac55"
+          },
+          {
+            "CountryName": "GHANA",
+            "IsCountrySelected": false,
+            "PCOTID": "db576b3e-01b5-4c57-b2dd-4bcdf6cbfbe4"
+          },
+          {
+            "CountryName": "INDIA",
+            "IsCountrySelected": false,
+            "PCOTID": "410acd2a-3500-4e05-8ddb-29727e56f93d"
+          },
+          {
+            "CountryName": "UNITED KINGDOM",
+            "IsCountrySelected": false,
+            "PCOTID": "b13e4cc2-7ae4-4db0-88f4-a3686dce5c73"
+          }
+        ]
+      }
+    ]
+  }
+
+
+
+  form: FormGroup;
+  constructor(private fb: FormBuilder, private zone: NgZone) {
+    this.form = this.fb.group({
+      ActivityList:this.fb.array(this.buildFormArray())
+    });
+    
+      console.log(this.ActivityList);
+  }
+
+ get ActivityList() {
+    return this.form.get('ActivityList')['controls'];
+ }
+
+  buildFormArray() {
+    let { ActivityList } = this.data; 
+
+    let obj1 = ActivityList.map((d, i) => {
+      return {
+        name: i
+      }
+    })
+
+ let array = []; 
+ let f: FormGroup;
+    for (let activity of ActivityList) {
+      let { IsSelected,
+        TaskDescription,
+        CountryList } = activity;
+   
+        f = this.fb.group({
+          IsSelected: IsSelected,
+          TaskDescription: TaskDescription,
+          CountryList: this.fb.array([{
+              CountryName: '',
+              IsCountrySelected: ''
+          }])
+        })
+      array.push(f);
+
+      // let arr = CountryList.map(v => { return this.fb.group({ CountryName: (v['CountryName']), IsCountrySelected: (v['IsCountrySelected']) }) })
+ 
+    // console.log(arr);
+
+
+  //  array.push(new ActivityListClass(IsSelected, TaskDescription, arr));
+     }
+      
+     return array;
+  }
+
+
+}
+
+export class ActivityListClass {
+  IsSelected: FormControl;
+  TaskDescription: FormControl;
+  CountryList;
+
+  constructor(IsSelected, TaskDescription, CountryList) {
+    this.IsSelected = new FormControl(IsSelected);
+    this.TaskDescription = new FormControl(TaskDescription);
+    this.CountryList = CountryList;
+    
+  }
+ 
+  // formGroup() {
+  //   return new FormGroup({
+  //     this.IsSelected
+  //   })
+  // }
+
+}
+ -->
+
+
+
+Filter Logic
+
+<!-- ngOnInit() {
+  this.form.get('search').valueChanges.subscribe((change)=>{
+      let innerText = this.ref.toArray().map((d,i)=>{ return {id:i ,value :d.nativeElement.innerText}})
+      let filter = innerText.filter((v)=>v['value'].toLowerCase().indexOf(change.toLowerCase()) != -1)
+       let  i = 0;
+      let [a =filter[i].id] = this.ref.toArray();
+      console.log(a);
+       
+      // filter.map(v=>{
+  
+this.render.setStyle(a['nativeElement'], 'display', 'none');
+      // })
+// console.log(filter);
+  });
+}
+} -->

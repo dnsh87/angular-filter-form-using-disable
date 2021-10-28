@@ -1,0 +1,43 @@
+<h1>Search</h1>
+
+<input type="search" [formControl]="search" />
+
+<form [formGroup]="form">
+  <label
+    formArrayName="ActivityList"
+    *ngFor="let c of ActivityList; let i = index"
+  >
+    <div [formGroupName]="i" *ngIf="toggle[i]">
+      <label #fil [attr.for]="c.get('TaskDescription').value">
+        {{ c.get('TaskDescription').value }}
+        <input
+          [searchable]="c.get('TaskDescription').value"
+          type="checkbox"
+          formControlName="IsSelected"
+        />
+      </label>
+
+      <label
+        #fil
+        formArrayName="CountryList"
+        *ngFor="let ctrl of c.get('CountryList').controls; let j = index"
+      >
+        <div [formGroupName]="j">
+          {{ ctrl.get('CountryName').value }}
+          <input
+            [searchable]="ctrl.get('CountryName').value"
+            type="checkbox"
+            formControlName="IsCountrySelected"
+          />
+        </div>
+      </label>
+
+      <hr />
+    </div>
+  </label>
+</form>
+
+<hr />
+<!-- {{form.value | json}} -->
+
+<!-- Toggle Value::::{{toggle}} -->

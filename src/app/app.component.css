@@ -1,0 +1,18 @@
+p {
+  font-family: Lato;
+}
+/* .config-options-box {
+  display: grid;
+  grid-template-columns: 300px 600px;
+  grid-gap: 10px;
+}
+.config-options-line-name {
+  grid-column-start: 1;
+  grid-row-end: span 1;
+  color:red;
+}
+.config-options-line-choices {
+  grid-column-start: 2;
+  grid-row-end: span 1
+}
+ */
